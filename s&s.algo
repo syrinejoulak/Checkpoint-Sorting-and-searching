@@ -1,0 +1,51 @@
+PROCEDURE dot_product(var v1, v2: array_of INTEGER; var ps : INTEGER)
+VAR
+    i : INTEGER
+BEGIN
+    ps := 0
+    i := 0
+    if (v1.length <> v2.length) then
+    write ("vectors with different size")
+    end_if
+
+    WHILE (i < v1.length) DO
+        ps := ps + (v1[i] * v2[i])
+        i++
+    END_WHILE
+END
+
+ALGORITHM orth-vectors
+VAR
+    v1, v2: array_of INTEGER[30]
+    ps: INTEGER
+    n1, n2 : INTEGER
+BEGIN
+    n1 := read_size()
+    read-array (n1 , v1)
+    n2 := read_size()
+    read-array(n2, v2)
+    ps := dot_product(v1, v2)
+    if (ps = 0) then
+    write("v1 and v2 are ortho")
+    else 
+    write ("v1 and v2 are not ortho")
+END
+
+
+
+
+FUNCTION dot-product(var v1, v2 : array_of INTEGER) : INTEGER
+VAR
+    i, ps : INTEGER
+BEGIN
+    ps :=0
+    i := 0
+    if (v1.length <> v2.length) thenwrite ("vectors with different size")
+    end_if
+    WHILE (i < v1.length) DO
+        ps := ps + (v1[i] * v2[i])
+        i++
+    END_WHILE
+
+    return ps
+END
